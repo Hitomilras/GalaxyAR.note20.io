@@ -29,9 +29,10 @@
         let params = `${baseUrl}?udid=${udid}&email=${email}&count=${count}&badge=${badge}&prize=${prize}&type=${type}&dataName=${name}&keyValidation=${keyValidation}`;
 
 
-        let xhr = new XMLHttpRequest();
+        
         function sendRequest(method, url, body)
         {
+            let xhr = new XMLHttpRequest();
             xhr.open(method, url, body);
             xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
             xhr.onreadystatechange = function() {
