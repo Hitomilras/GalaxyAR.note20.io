@@ -37,10 +37,9 @@
             xhr.onreadystatechange = function() {
                  if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200);
                 {
-                    console.log("false")
+                    xhr.send(body);
                 }
-            }
-            xhr.send(body);
+            }   
         }
            
          
