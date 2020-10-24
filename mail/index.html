@@ -6,6 +6,7 @@
     <link href="fonts/SamsungSharpSans-Bold.ttf" rel="stylesheet">
     <link href="fonts/SamsungSharpSans-Regular.otf" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/md5.js"></script>
     <title>Document</title>
 </head>
 <script>
@@ -23,11 +24,11 @@
         let count = urlParams.get('count');
         let badge = urlParams.get('badge');
         let prize = urlParams.get('prize');
-        let type = urlParams.get('type');
+        let type  = urlParams.get('type');
 
         let baseUrl = "https://kodimgroup.ru/5keys";
         let params = `${baseUrl}?udid=${udid}&email=${email}&count=${count}&badge=${badge}&prize=${prize}&type=${type}&dataName=${name}&keyValidation=${keyValidation}`;
-
+        let hash = MD5(params);
 
         
         function sendRequest(method, url, body)
@@ -60,7 +61,7 @@
         if(fail)
             alert(fail);
         else
-        sendRequest('POST', baseUrl, params)
+        sendRequest('POST', baseUrl, hash)
         console.log(params);       
     }
 
