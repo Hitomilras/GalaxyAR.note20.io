@@ -38,8 +38,9 @@
             let xhr = new XMLHttpRequest();
             xhr.open(method, url, body);
             xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+            xhr.send(body);
             xhr.onreadystatechange = function() {
-                    xhr.send(body);
+                    
             }   
         }
            
