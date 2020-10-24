@@ -36,10 +36,10 @@
         function sendRequest(method, url, body)
         {
             let xhr = new XMLHttpRequest();
-            xhr.open(method, url, body);
+            xhr.open(method, url);
             xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
             xhr.onreadystatechange = function() {
-                 if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200);
+                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200);
                 {
                     xhr.send(body);
                 }
