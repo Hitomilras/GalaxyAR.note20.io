@@ -46,8 +46,7 @@
             }   
         }
            
-         
-
+        
         let adr_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,5}))$/;
 
 
@@ -64,8 +63,7 @@
             alert(fail);
         else
         sendRequest('POST', baseUrl, params)
-        console.log(params);
-        console.log(hash);        
+        alert("Спасибо. Ваше письмо было отправлено.");
     }
 
     document.onkeypress = function(event){
