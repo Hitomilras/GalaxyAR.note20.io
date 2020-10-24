@@ -33,7 +33,7 @@
         function sendRequest(method, url, body)
         {
             xhr.open(method, url, body);
-            xhr.setRequestHeader("Content-type", "Access-Control-Allow-Origin");
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
             xhr.onreadystatechange = function() {
                  if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200);
                 {
