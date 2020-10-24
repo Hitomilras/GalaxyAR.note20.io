@@ -40,7 +40,6 @@ input[type="text"] {
     font-size: 15px;
     text-indent: 10px;
     line-height: 40px;
-    text-transform: uppercase;
     text-align: center;
 }
 input::-webkit-input-placeholder {
