@@ -25,10 +25,11 @@
         let badge = urlParams.get('badge');
         let prize = urlParams.get('prize');
         let type  = urlParams.get('type');
+        let deviceid = urlParams.get('deviceid');
 
         let baseUrl = "https://kodimgroup.ru/5keys";
-        let hash = MD5(params);
-        let params = `${baseUrl}?udid=${udid}&email=${email}&count=${count}&badge=${badge}&prize=${prize}&type=${type}&dataName=${name}&hash=${hash}`;
+        let hash = MD5(udid + email + count + badge + prize + type + name + deviceid + keyValidation);
+        let params = `${baseUrl}?udid=${udid}&email=${email}&count=${count}&badge=${badge}&prize=${prize}&type=${type}&dataName=${name}&deviceid=${deviceid}&keyValidation=${keyValidation}&hash=${hash}`;
         
 
         
