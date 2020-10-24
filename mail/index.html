@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="fonts/SamsungSharpSans-Bold.ttf" rel="stylesheet">
+    <link href="fonts/SamsungSharpSans-Regular.otf" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<script>
+    let currentLocation = window.location.search;
+    const urlParams = new URLSearchParams(currentLocation);
+    function valid (form) {
+        let fail = false;
+        let name = form.name.value;
+        let email = form.email.value;
+        let confirm_email = form.confirm_email.value;
+        let data_processing = form.data_processing;
+
+        let udid = urlParams.get('udid');
+        let keyValidation = urlParams.get('keyValidation');
+        let count = urlParams.get('count');
+        let badge = urlParams.get('badge');
+        let prize = urlParams.get('prize');
+        let type = urlParams.get('type');
+
+        let baseUrl = "https://kodimgroup.ru/5keys";
+        let params = `${baseUrl}?udid=${udid}?email=${email}?count=${count}?badge=${badge}?prize=${prize}?type=${type}?dataName=${name}?keyValidation=${keyValidation}`;
+
+
+        let xhr = new XMLHttpRequest();
+        function sendRequest(method, url, body)
+        {
+            xhr.open(method, url, body);
+            xhr.setRequestHeader("Content-type", "Access-Control-Allow-Origin");
+            xhr.onreadystatechange = function() {
+                 if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200);
+                {
+                    console.log("false")
+                }
+            }
+            xhr.send(body);
+        }
+           
+         
+
+        let adr_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,5}))$/;
+
+
+        if(name == "" || name == " ")
+            fail = "Вы не ввели свое имя";
+        else if(adr_pattern.test(email) ==  false)
+            fail = "Вы не ввели email или ввели его неправильно";
+        else if(email != confirm_email)
+            fail = "email не совпадает";
+        else if(data_processing.checked == false)
+			fail = "Вы не дали согласия на обработку Ваших данных";
+
+        if(fail)
+            alert(fail);
+        else
+        sendRequest('POST', baseUrl, params)
+        console.log(params);       
+    }
+
+    document.onkeypress = function(event){
+        console.log(event);
+
+    }
+</script>
+<body>
+    <div class="block_img">
+        <img src="img/icon-envelope.png">
+    </div>
+    <div class="block_form">
+        <h1>Claim Your Prize</h1>
+        <p>Enter your name and email address to recelve your prize!</p>
+        <form action="" method="post" name="test" id="form">
+            <input type="text" name="name" placeholder="name" id="name" /><br>
+            <input type="text" name="email" placeholder="email" id="email" /><br>
+            <input type="text" name="confirm_email" placeholder="confirm email" id="confirm_email" /><br>
+            <div class="d-flex"><input type="checkbox" name="data_processing" id="data_processing" /> <label for="male">consent to use my particulars above in order to receive game updates</label></div>
+            <div class="d-flex"><input type="checkbox" name="notification" id="notification" /> <label for="male">wish to receive offers and news from Samsung via email</label></div>   
+        </form>
+        <img class="btn_submit" src="img/button-submit.png" onclick="valid(document.getElementById('form'))">
+    </div>
+</body>
+</html>

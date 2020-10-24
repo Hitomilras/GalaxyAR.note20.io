@@ -1,0 +1,94 @@
+@font-face {
+    font-family: Samsung Sharp Sans-Bold;
+    src: url(../fonts/SamsungSharpSans-Bold.ttf);
+    src: url(../fonts/SamsungSharpSans-Regular.otf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 107vh;
+    background-image: url(../img/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Samsung Sharp Sans';
+    display: flex;
+    align-items: center;
+    color: #898888;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.btn_submit {
+    cursor: pointer;
+}
+.block_form > form {
+    display: flex;
+    flex-direction: column;
+}
+body > div:first-child {
+    flex-basis: 40%;
+    text-align: center;
+}
+input[type="text"] {
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid #000;
+    font-size: 15px;
+    text-indent: 10px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+}
+input::-webkit-input-placeholder {
+     font-size: 20px;
+}
+.block_form {
+    flex-basis: 40%;
+}
+h1, p {
+    text-align: center;
+}
+h1 {
+    font-family: 'Samsung Sharp Sans', 'Bold';
+    font-size: 60px;
+    letter-spacing: 5px;
+    color: #000;
+}
+.d-flex {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+img.btn_submit {
+    margin-top: 40px;
+}
+.d-flex > input {
+    margin-right: 10px;
+}
+.block_form > p {
+    margin-bottom: 30px;
+}
+@media(max-width: 1365px) {
+    .block_img {
+        display: none;
+    }
+    
+    .block_form {
+        flex-basis: 100%;
+        padding: 0 50px;
+    }
+}
+@media(max-width: 767px) and (min-width: 376px) {
+    h1 {
+        font-size: 55px;
+    }
+}
+@media(max-width: 375px) {
+    h1 {
+        font-size: 39px;
+    }
+}
