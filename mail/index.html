@@ -58,12 +58,13 @@
             fail = "email не совпадает";
         else if(data_processing.checked == false)
 			fail = "Вы не дали согласия на обработку Ваших данных";
+        else if (data_processing.checked != false && email == confirm_email && name != "" )
+            alert("Спасибо. Ваше письмо было отправлено.");
 
         if(fail)
             alert(fail);
         else
         sendRequest('POST', baseUrl, params)
-        alert("Спасибо. Ваше письмо было отправлено.");
     }
 
     document.onkeypress = function(event){
